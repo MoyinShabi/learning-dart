@@ -2,7 +2,7 @@ void main(List<String> args) {
   final sayHi = (String name) => 'Hi $name';
   print('--1--');
   welcome(sayHi, 'Moyin');
-  //Because the parameter(s) type(s), number of parameters, and return type of the anonymous function matches the parameter(s) type(s), number of parameters, and return type of the function `greet` declared as a parameter in the function `welcome`, this code is valid. So, `sayHi` of the type `String Function(String)` must match `greet` of type `String Function(String)` also.
+  // Because the parameter(s) type(s), number of parameters, and return type of the anonymous function matches the parameter(s) type(s), number of parameters, and return type of the function `greet` declared as a parameter in the function `welcome`, this code is valid. So, `sayHi` of the type `String Function(String)` must match `greet` of type `String Function(String)` also.
 
   final sayHi1 = (String firstName, int age) => 'Hi $firstName, $age';
   print('--2--');

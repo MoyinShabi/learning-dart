@@ -12,18 +12,19 @@ void main() {
 
   // Note: Function arguments passed in a function call can be variables, expressions, or literals as long as they have the correct type and are in the right order.
   print('--3--');
-  describe(name,
-      age); // Each argument is identified by its position in the arguments list of the declared function(i.e., they are specified in the same order as in the declared function).
+  describe(name, age);
+  // Each argument is identified by its position in the arguments list of the declared function(i.e., they are specified in the same order as in the declared function).
+
   print('--4--');
   describe(name1, age1);
   print('--5--');
   describe('Temi', 19);
 
-  final person1 = describe1(name,
-      age); //Assigning the return value to a variable in order to use it in the rest of the program.
+  final person1 = describe1(name, age);
+  // Assigning the return value to a variable in order to use it in the rest of the program.
   print('--6--');
   print(person1);
-  //We now have a reusable piece of code that describes a person by name and age and we can use the return value any way we want.
+  // We now have a reusable piece of code that describes a person by name and age and we can use the return value any way we want.
 
   var person2 = describe2(name: 'Moyin');
   print('--7--');
@@ -75,11 +76,11 @@ void main() {
   }; // `saysHi` is not a conventional variable that holds a value but instead references an "anonymous function", and so it is of a type `String Function(String)`.
   // OR final saysHi = (String name) => 'Hi, $name';
   print('--18--');
-  print(saysHi(
-      'Moyin')); //The variable used as the anonymous function needs to be called with an argument passed in the parenthesis, like this.
+  print(saysHi('Moyin'));
+  // The variable used as the anonymous function needs to be called with an argument passed in the parenthesis, like this.
   print('--19--');
-  print(
-      saysHi); //If the parenthesis is omitted, there's no compile-time error and the output is: Closure: (String) => String
+  print(saysHi);
+  // If the parenthesis is omitted, there's no compile-time error and the output is: Closure: (String) => String
   // A closure can be thought of as an anonymous function.
 }
 
@@ -124,7 +125,7 @@ So, if an optional named parameter is not specified in a function call,
 it defaults to `null` which goes against "Null Safety".*/
 
 // FIX 1- Making the arguments "nullable" if we really want the arguments in the function call to be `null` by default:
-//This is not a good solution though, because we don't want the arguments to be `null` when we interpolate them inside the string.
+// This is not a good solution though, because we don't want the arguments to be `null` when we interpolate them inside the string.
 String describe2({String? name, int? age}) {
   return "My name is $name, I'm $age years old";
 }
@@ -195,10 +196,10 @@ void foo3(int a, {int b = 4, int c = 5}) {
 // As long as we list the (required) positional arguments first, followed by the (optional) named arguments, then this is valid syntax.
 
 // FAT ARROW NOTATION (=>)- Helps to write more concise code when a function"s body has only one statement.
-int sum(int x, int y) =>
-    x +
-    y; //removes the curly braces and `return` keyword in a normal function declaration.
-void printSum(int x, int y) =>
-    print(x + y); //removes the curly braces in a normal function declaration.
+int sum(int x, int y) => x + y;
+// Removes the curly braces and `return` keyword in a normal function declaration.
+
+void printSum(int x, int y) => print(x + y); 
+// Removes the curly braces in a normal function declaration.
 
 // NOTE: When writing programs, and you have some code that solves a specific task, ask yourself if it should live inside a function. And if so, choose a good function name, and decide what arguments it should take. Use named or positional arguments as appropriate, so that it's clear from the context what the function does.
