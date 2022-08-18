@@ -5,7 +5,7 @@ That is, regular constructors must return an instance of the class itself, but "
 2. When we need to initialize a final variable using logic that can't be handled in the initializer list.
 
 /* NOTE:
-  Regular constructors: all final variables must be initialized immediately (as arguments or with the initializer list)
+  Regular constructors: all final variables must be initialized immediately (as arguments or with the initializer list).
 
   Factory constructors: can execute any arbitrary logic first, and then return an instance of a subclass or the class itself. 
  */
@@ -30,21 +30,22 @@ abstract class Shape {
   static Shape fromJson(Map<String, Object> json) {...} 
   It's possible, and easy to replace the factory constructor with a `static` method that returns an object of type `Shape`. The code will work just fine, however, by convention, when you want to initialize a class instance such as in this case, then it's recommended to use a `factory` constructor.
   */
-    final type = json['type'];
+    final shapeType = json['type'];
     // Setting a new key-value pair in the empty map, `json`. The value is null so it is of type `Object?`.
     // Using a `switch` statement to decide which kind of instance to return (that is, the instance of which subclass to return):
-    switch (type) {
+    switch (shapeType) {
       case 'square':
-        final side = json['side'];
+        final shapeSide = json['side'];
         // return Square(side); // Compile-time error - Because it is not guaranteed at compile-time that we have a value for the `side` key, and so the variable `side` could be `null`. And even if it's not `null`, it's not guaranteed to be of type `double` as it should be, from the `Square` subclass below.
         // FIX:
-        if (side is double) {
-          return Square(
-              side); // The factory constructor can return existing instances of the class, or even subclasses of it, as shown here.
+        if (shapeSide is double) {
+          return Square(shapeSide);
+          // The factory constructor can return existing instances of the class, or even subclasses of it, as shown here.
         }
         // Throwing an error if we couldn't read the `side` variable and create a `Square(side)` object, because it is `null` or not a double, because we can't return `null`, and the factory constructor has to return a Shape (it will cause an exception that will interrupt the execution of our program):
         throw UnsupportedError(
             'invalid or missing side property of the square');
+
       case 'circle':
         final radius = json['radius'];
         if (radius is double) {
@@ -52,6 +53,7 @@ abstract class Shape {
         }
         throw UnsupportedError(
             'invalid or missing radius property of the circle');
+
       case 'parallelogram':
         final base = json['base'];
         final height = json['height'];
@@ -61,10 +63,10 @@ abstract class Shape {
         throw UnsupportedError(
             'invalid or missing base or height property of the parallelogram');
 
-      // Handling the case where the type is not a square or circle, which should not be:
+      // Handling the case where the `shapeType` is not a valid key in a map in the `shapesJson` list below::
       default:
         throw UnimplementedError(
-            'shape $type not recognized'); // This is like a warning to cause a check of wrong data in the `shapesJson` list below.
+            'shape $shapeType not recognized'); // This is like a warning to cause a check of wrong data in the `shapesJson` list below.
     }
   }
   // NOTE: `Object` is a good choice for the type of the `values` of the `json` `Map` argument, because it is the superclass of all classes in Dart. So, prefer `Object` to `dynamic` when working with maps, because the type system will help more as we do so.
