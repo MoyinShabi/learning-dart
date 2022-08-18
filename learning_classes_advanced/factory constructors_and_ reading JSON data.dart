@@ -30,8 +30,8 @@ abstract class Shape {
   static Shape fromJson(Map<String, Object> json) {...} 
   It's possible, and easy to replace the factory constructor with a `static` method that returns an object of type `Shape`. The code will work just fine, however, by convention, when you want to initialize a class instance such as in this case, then it's recommended to use a `factory` constructor.
   */
-    final type = json[
-        'type']; // Setting a new key-value pair in the empty map, `json`. The value is null so it is of type `Object?`.
+    final type = json['type'];
+    // Setting a new key-value pair in the empty map, `json`. The value is null so it is of type `Object?`.
     // Using a `switch` statement to decide which kind of instance to return (that is, the instance of which subclass to return):
     switch (type) {
       case 'square':
