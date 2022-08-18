@@ -5,5 +5,5 @@ P.S. To look into the folders properly in the web-based editor, see below 👇:
 
 [Image source](https://docs.github.com/en/codespaces/the-githubdev-web-based-editor) 
 
-*Tip: "Word wrap" code in editor to read really long coments conveniently, using `Alt+Z`* 
+*Tip: Enable "Word Wrap" of code in editor to read really long coments conveniently, using `Alt+Z`* 
 
