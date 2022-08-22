@@ -26,6 +26,6 @@ void main(List<String> args) {
   final bankAccount = BankAccount(200);
   print(bankAccount._balance);
   // It can be directly accessed/updated in the same file the class is declared in but not outside.
-  bankAccount._balance = 20; // Valid
+  bankAccount._balance = 20; // Valid.
   print(bankAccount._balance);
 }
