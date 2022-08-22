@@ -63,4 +63,10 @@ void main() {
   print(fruits);
   fruits.clear();
   print(fruits);
+
+  const colours = ['Blue', 'Orange', ''];
+//   colours.add('Pink');
+//   colours = [];
+  colours[2] = 'Pink';
+  print(colours);
 }

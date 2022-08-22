@@ -4,9 +4,9 @@ void main() {
   print('--1--');
   print(
       person['age']); // null -This means that there is 'no value' for this key.
-  //There are many situations in a program where it's useful to use null values.
+  // There are many situations in a program where it's useful to use null values.
 
-  //Using `if` statements to check if a value is `null`:
+  // Using `if` statements to check if a value is `null`:
   print('--2--');
   if (person['age'] == null) {
     print('age is missing'); // age is missing
@@ -29,16 +29,16 @@ void main() {
   // b = 2 //No error.
 
   print('--3--');
-  int? c =
-      null; //No Error -Using `int?` declares this variable as "nullable" and so it can be initialized as `null`
-  int?
-      d; //Un-initialized variable set to "null" by default without any compiler errors.
+  int? c = null;
+  //No Error -Using `int?` declares this variable as "nullable" and so it can be initialized as `null`
+  int? d;
+  // Un-initialized variable set to "null" by default without any compiler errors.
   // d = null; //No error
   print(d); // null
 
   print('--4--');
   int e = 2;
-  // print(d + e); //Compile-time error -Two variables can't be added if one of them (`d`) is null or nullable.
+  // print(d + e); // Compile-time error -Two variables can't be added if one of them (`d`) is null or nullable.
   d = 2;
   print(d); // 2
   print(d + e); // 4
@@ -50,8 +50,8 @@ void main() {
   if (f == null) {
     print('f is null'); // f is null
   } else {
-    print(f +
-        g); //Thanks to Flow Analysis, the variable `f` is promoted from "nullable value" to "non-nullable value" inside the `else` branch.
+    print(f + g);
+    // Thanks to Flow Analysis, the variable `f` is promoted from "nullable value" to "non-nullable value" inside the `else` branch.
   }
 
   // FLOW ANALYSIS: DEFINITE ASSIGNMENT
@@ -59,7 +59,7 @@ void main() {
   int h = 10;
   int sign;
   // print(sign); //Compile-time error -Because the "non-nullable variable" must be assigned before it can be used.
-  //A FIX:
+  // A FIX:
   if (h >= 0) {
     sign = 1;
   } else {
@@ -74,7 +74,7 @@ void main() {
   // ASSERTION OPERATOR (!)- Used to assign a nullable value to a non-nullable variable.
   print('--7--');
   int x = 30;
-  int? maybeValue; //Nullable variable that is only assigned if `x > 0`.
+  int? maybeValue; // Nullable variable that is only assigned if `x > 0`.
   print(maybeValue); // null
 
   if (x > 0) {
@@ -82,17 +82,17 @@ void main() {
   }
   print(maybeValue); // 30
 
-  // int value = maybeValue; //Compile-time error -Because a "nullable value", (`maybeValue`, null, of type `int?`), can't be assigned to a "non-nullable variable", (`value` of type `int`). At this time, at compile-time, the computer assumes that `maybeValue` contains a nullable value, `null` from it's declaration, because the `if` statement is executed at run-time and not compile-time.
+  // int value = maybeValue; // Compile-time error -Because a "nullable value", (`maybeValue`, null, of type `int?`), can't be assigned to a "non-nullable variable", (`value` of type `int`). At this time, at compile-time, the computer assumes that `maybeValue` contains a nullable value, `null` from it's declaration, because the `if` statement is executed at run-time and not compile-time.
 
-  int value =
-      maybeValue!; // Assertion operator(!) used when it is sure that a "nullable variable" (e.g `maybeValue`) will "always" have a "non-nullable value" after the program is run (e.g `30` from the `if` statement above, after it is executed at run-time) and then assigns it to a "non-nullable variable" (e.g `value`), without any error.
+  int value = maybeValue!;
+  // Assertion operator(!), used when it is sure that a "nullable variable" (e.g `maybeValue`) will "always" have a "non-nullable value" after the program is run (e.g `30` from the `if` statement above, after it is executed at run-time) and then assigns it to a "non-nullable variable" (e.g `value`), without any error.
   //Note: If `int x = -1` above, it will generate an error at runtime because the assertion operator `!` (null check operator or bang operator) was used on a "null value". Try it.
   print(value); // 30
 
   // if-null (??) OPERATOR- Used to deal with incorrect use of the assertion operator(!) (using it on a null value) but without risking any runtime errors.
   print('--8--');
   int x1 = -1;
-  int? maybeValue1; //Nullable variable that is only assigned if `x > 0`.
+  int? maybeValue1; // Nullable variable that is only assigned if `x > 0`.
   print(maybeValue1); // null
 
   if (x1 > 0) {
@@ -100,15 +100,14 @@ void main() {
   }
   print(maybeValue1);
 
-  int value1 = maybeValue1 == null
-      ? 0
-      : maybeValue1; //Using the Ternary Operator to assign a value of `0` to `value1` if `maybeValue1` is `null`:
+  int value1 = maybeValue1 == null ? 0 : maybeValue1;
+  // Using the Ternary Operator to assign a value of `0` to `value1` if `maybeValue1` is `null`:
   print(value1); // 0 -Because for `int x1 = -1`, `maybeValue1` is `null`.
 
   // Another way to write the above Logic with much less code using the if-null `??` operator:
   print('--9--');
-  int value2 = maybeValue1 ??
-      0; // The if-null `??` operator assigns the value of `maybeValue1` to `value2` if it's not `null` but assigns `0` if it is `null`. It basically works like the ternary operator but with much less code.
+  int value2 = maybeValue1 ?? 0;
+  // The if-null `??` operator assigns the value of `maybeValue1` to `value2` if it's not `null` but assigns `0` if it is `null`. It basically works like the ternary operator but with much less code.
   print(value2); // 0
 
   // NOTE:
@@ -120,16 +119,16 @@ void main() {
   // AUGMENTED if-null `??=` operator
   print('--10--');
   int? maybeValue2;
-  maybeValue2 ??=
-      0; //This operator assigns `0` to `maybeValue2`, but only if it is currently `null`
-  int value3 =
-      maybeValue2; //So the `if-null` operator is not needed at this step.
+  maybeValue2 ??= 0;
+  // This operator assigns `0` to `maybeValue2`, but only if it is currently `null`
+  int value3 = maybeValue2;
+  // So the `if-null` operator is not needed at this step.
   print(value3); // 0
 
   // TYPE INFERENCE WITH NULL SAFETY
   print('--11--');
   const x2 = -1;
-  var maybeValue3; //It's harder to infer the type of this variable because it is not initialized when it's declared. So, Dart infers it as `dynamic`.
+  var maybeValue3; // It's harder to infer the type of this variable because it is not initialized when it's declared. So, Dart infers it as `dynamic`.
   if (x2 > 0) {
     maybeValue3 = x2;
   }
@@ -145,21 +144,21 @@ void main() {
     'London',
     'Paris',
     null
-  ]; //No error -Because we've not specified any type constraints (type annotation);
+  ]; // No error -Because we've not specified any type constraints (type annotation);
   // const cities1 = <String>['London', 'Paris', null]; // Error -Because null safety only allows us to add "non-null strings" to this list" with type annotation.
   const cities1 = <String?>[
     'London',
     'Paris',
     null
-  ]; //This type annotation (<String?>) then allows us to have "null values" inside the list.
+  ]; // This type annotation (<String?>) then allows us to have "null values" inside the list.
 
   // Iterating through the List:
   for (var city in cities1) {
     // print(city.toUpperCase()); // Compile-time error -Because `city` can be `null` from the `cities2`, and so a `null variable` can't be used to call a method.
     // A fix:
     if (city != null) {
-      print(city
-          .toUpperCase()); //Dart promotes `city` to a "non-nullable value" inside the `if` statement.
+      print(city.toUpperCase());
+      // Dart promotes `city` to a "non-nullable value" inside the `if` statement.
     }
     // LONDON
     // PARIS
@@ -169,8 +168,8 @@ void main() {
   print('--13--');
   const cities2 = <String?>['London', 'Paris', null];
   for (var city in cities2) {
-    print(city
-        ?.toUpperCase()); //This expression will return the uppercase version of the string if it is not null and it will return `null` otherwise, instead of generating an error (because the method was called on a null variable). This Null Safety feature helps us write code that is safer.
+    print(city?.toUpperCase());
+    // This expression will return the uppercase version of the string if it is not null and it will return `null` otherwise, instead of generating an error (because the method was called on a null variable). This Null Safety feature helps us write code that is safer.
   }
   // LONDON
   // PARIS
