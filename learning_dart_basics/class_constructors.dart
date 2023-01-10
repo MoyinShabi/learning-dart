@@ -1,16 +1,17 @@
 // Class "constructors" are used to initialize class member variables or properties i.e., to add default values to class member variables.
 
 class BankAccount {
+  double balance = 0;
+  String accountHolder = 'Mo';
+
 //19. Adding a "default" class constructor to initialize the `balance` class property with the value of the `balance` argument in the constructor:
   BankAccount(double balance, String accountHolder) {
-    this.balance = balance; // This tells Dart that the class member variable or property, `balance`, should be initialized with the value of the `balance` argument in the constructor.
+    this.balance =
+        balance; // This tells Dart that the class member variable or property, `balance`, should be initialized with the value of the `balance` argument in the constructor.
     this.accountHolder = accountHolder;
 
     // The `this` keyword is used to disambiguate between variables of the same name.
   }
-
-  double balance = 0;
-  String accountHolder = 'Mo';
 
   void deposit(double amount) {
     balance += amount;
@@ -31,15 +32,16 @@ class BankAccount {
 
 // Using an "initializer list" to initialize member variables with a class constructor:
 class BankAccount2 {
+  String accountHolder;
+  double balance;
+
   BankAccount2({
     double balance = 0,
-    required String accountHolder, // We have two constructor arguments to initialize the class member variables.
+    required String
+        accountHolder, // We have two constructor arguments to initialize the class member variables.
   })  : balance = balance,
         accountHolder = accountHolder;
   // We use this initializer list (syntax-> ` : assignment 1, assignment2;) to assign the constructor arguments to the class member variables. Though they have the same name in each case, Dart is smart enough to know which is which in the initializer list (left of assignment operator is member variable, right is constructor argument).
-
-  String accountHolder;
-  double balance;
 
   void deposit(double amount) {
     balance += amount;
@@ -59,14 +61,15 @@ class BankAccount2 {
 
 // "Short hand syntax" to achieve the same result (with less code) in the declaration of the class constructor in the `BankAccount2` class above:
 class BankAccount3 {
+  final String accountHolder;
+  // Making this an "immutable" variable by declaring it as `final` because `accountHolder` is something that shouldn't change in a bank account model.
+  double balance;
+
   BankAccount3({
     required this.accountHolder,
     this.balance = 0,
   });
   // By doing this, Dart uses the constructor arguments to initialize the member variables or instance variables or properties without needing to specify an initializer list by hand.
-
-  final String accountHolder; // Making this an "immutable" variable by declaring it as `final` because `accountHolder` is something that should't change in a bank account model.
-  double balance;
 
   void deposit(double amount) {
     balance += amount;
@@ -93,13 +96,13 @@ class BankAccount3 {
 // NOTE: "Class design is type design" and you should always strive to make your types "easy to use correctly", and "hard to use incorrectly".
 
 class BankAccount4 {
+  String accountHolder;
+  double balance;
+
   BankAccount4(
     this.accountHolder,
     this.balance,
   );
-
-  String accountHolder;
-  double balance;
 
   void deposit(double amount) {
     balance += amount;

@@ -4,6 +4,7 @@ void main() {
   Set<String> setName2 = {};
   print(setName2);
   var fruits = {'Orange', 'Apple', 'Mango'};
+  print(""); // Empty line
 
   //Basic methods
   fruits.add('Banana');
