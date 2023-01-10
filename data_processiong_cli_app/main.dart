@@ -2,7 +2,7 @@ import 'dart:io';
 
 void main(List<String> arguments) {
   if (arguments.isEmpty) {
-    print("Usage: dart .\\project_data_processing.dart <inputFile.csv>");
+    print("Usage: dart .\\main.dart <inputFile.csv>");
     exit(1); //Error code on failure
   }
 

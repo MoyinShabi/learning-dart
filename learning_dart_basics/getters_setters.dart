@@ -9,9 +9,8 @@
 
 class Temperature {
   Temperature.celsius(this.celsius);
-  Temperature.fahrenheit(double fahrenheit)
-      : celsius = (fahrenheit - 32) /
-            1.8; // This constructor uses an initializer list to set the value of the `celsius` property as the computed value from the expression involving the required argument, `fahrenheit`.
+  Temperature.fahrenheit(double fahrenheit) : celsius = (fahrenheit - 32) / 1.8;
+  // This constructor uses an initializer list to set the value of the `celsius` property as the computed value from the expression involving the required argument, `fahrenheit`.
 
   double celsius;
   double get fahrenheit => (celsius * 1.8) + 32;
@@ -28,11 +27,11 @@ void main(List<String> args) {
 
   temp1.celsius = 50; // Setting the `celsius` property normally.
 
-  print(temp1
-      .fahrenheit); // 122.0 - Calling the getter. It returns the computed temperature in fahrenheit from the expression involving the current value of the `celsius` property.
+  print(temp1.fahrenheit);
+  // 122.0 - Calling the getter. It returns the computed temperature in fahrenheit from the expression involving the current value of the `celsius` property.
 
-  temp1.fahrenheit =
-      90; // Calling the setter. Enables us to set the value of the temperature in fahrenheit which also reassigns (sets) the value of the `celsius` property.
+  temp1.fahrenheit = 90;
+  // Calling the setter. Enables us to set the value of the temperature in fahrenheit which also reassigns (sets) the value of the `celsius` property.
 
   print(temp1.fahrenheit); // 90.0
   print(temp1.celsius); // 32.22222222222222

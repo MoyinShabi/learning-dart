@@ -46,7 +46,7 @@ void main() {
   //Basic Methods
   fruits.add('Banana');
   print(fruits);
-  fruits.addAll(['Avocado', 'Mango', 'Tangarine']);
+  fruits.addAll(['Avocado', 'Mango', 'Tangerine']);
   print(fruits);
   fruits.insert(1, 'Pawpaw');
   print(fruits);

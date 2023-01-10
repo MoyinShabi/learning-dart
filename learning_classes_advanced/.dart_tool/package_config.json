@@ -3,19 +3,19 @@
   "packages": [
     {
       "name": "collection",
-      "rootUri": "file:///C:/Users/moyin/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/collection-1.16.0",
+      "rootUri": "file:///C:/Users/moyin/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/collection-1.17.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "equatable",
-      "rootUri": "file:///C:/Users/moyin/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/equatable-2.0.3",
+      "rootUri": "file:///C:/Users/moyin/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/equatable-2.0.5",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "lints",
-      "rootUri": "file:///C:/Users/moyin/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/lints-2.0.0",
+      "rootUri": "file:///C:/Users/moyin/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/lints-2.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -32,7 +32,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-08-18T12:45:15.201986Z",
+  "generated": "2022-12-20T23:13:07.756659Z",
   "generator": "pub",
-  "generatorVersion": "2.17.6"
+  "generatorVersion": "2.18.1"
 }
