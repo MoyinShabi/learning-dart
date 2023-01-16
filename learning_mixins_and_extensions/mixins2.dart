@@ -3,7 +3,7 @@
   objects of a mixin type. The whole point of a mixin is to "mix-it-in" to other 
   classes.
 - Mixins lead to name collisions, because we can define member variables or methods 
-  with the same name inside tow separate mixins, and this can make things quite
+  with the same name inside two separate mixins, and this can make things quite
   confusing.*/
 
 mixin Mixin1 {

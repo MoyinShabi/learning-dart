@@ -9,7 +9,7 @@ class Point {
   // Learning operator overload:
   // Operator overload allows us to define how an operator works when it is applied to a new type (class). In this case, we are interested in the equality operator because that's what we use to compare the objects in the `main` method below.
 
-  // We need to pass an argument of type `Object`, because the equality operator works with two operands. One on the left side and the other on the right side. So in this case, the left-hand side operator is the current instance which already has `x` and `y` variables. And the right-hand side operand is passed as an argument of the parameter `other`. We're normally not allowed to use `Point` as the type of the argument, because the equality operator inside the `Object` class has an argument of type `Object`, and when we override a method or an operator, all the arguments must match.
+  // We need to pass an argument of type `Object`, because the equality operator works with two operands. One on the left side and the other on the right side. So in this case, the left-hand side operator is the current instance which already has `x` and `y` variables. And the right-hand side operand is passed as an argument of the parameter `other`. *We're normally not allowed to use `Point` as the type of the argument, because the equality operator inside the `Object` class has an argument of type `Object`, and when we override a method or an operator, all the arguments must match.*
 
   // @override
   // bool operator ==(Object other) {

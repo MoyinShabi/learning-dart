@@ -12,24 +12,24 @@ This makes them well suited for extending classes that belong to the Dart SDK,
 as well as code that lives inside separate packages or libraries.
 */
 
-class Animal {
+class LivingThing {
   void breathe() => print('breathing');
 }
 
-class Fish extends Animal {
+class Fish extends LivingThing {
   void swim() => print('swimming');
 }
 
-class Penguin extends Animal {
+class Penguin extends LivingThing {
   void swim() => print('swimming');
 }
 
 /* We now have some code duplication because we had to implement the same 
-'swim()` method in the 'Fish` and `Human` classes.
+'swim()` method in the 'Fish` and `Penguin` classes.
 The solution to this is not to move the `swim()` method to the `LivingThing` class, 
 because it's definitely not true that all Living things can swim.
 Also, it doesn't seem right to add another superclass that is shared by both
-the `Fish` and `Human` classes so that they can both 'swim'.
+the `Fish` and `LivingThing` classes so that they can both 'swim'.
 This is an example where mixins come handy */
 
 // SOLUTION
